@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<input type="text" placeholder="Valor A" id="valorA">
+	<input type="text" placeholder="Valor B" id="valorC">
+	<input type="text" placeholder="Valor C" id="valorB">
+	<input type="text" placeholder="Valor D" id="valorD">
+	<button onclick="generar()">GENERAR GRÁFICA</button>
+
+
+	<div class="contenedor">
+		
+		<div class="resultado"></div>
+
+		<div class="cuadranteA">KILLER</div>
+		<div class="cuadranteB">TRIUNFADOR</div>
+		<div class="cuadranteC">SOCIABLE</div>
+		<div class="cuadranteD">EXPLORADOR</div>
+
+		<div class="lineas-h">
+			<div class="linea-h"></div>
+			<div class="linea-h"></div>
+			<div class="linea-h"></div>
+			<div class="linea-h"></div>
+			<div class="linea-h"></div>
+			<div class="linea-h"></div>
+			<div class="linea-h"></div>
+			<div class="linea-h"></div>
+			<div class="linea-h"></div>
+			<div class="linea-h"></div>
+			<div class="linea-h"></div>
+			<div class="linea-h"></div>
+			<div class="linea-h"></div>
+			<div class="linea-h"></div>
+			<div class="linea-h"></div>
+			<div class="linea-h"></div>
+			<div class="linea-h"></div>
+			<div class="linea-h"></div>
+		</div>
+
+		<div class="lineas-v">
+			<div class="linea-v"></div>
+			<div class="linea-v"></div>
+			<div class="linea-v"></div>
+			<div class="linea-v"></div>
+			<div class="linea-v"></div>
+			<div class="linea-v"></div>
+			<div class="linea-v"></div>
+			<div class="linea-v"></div>
+			<div class="linea-v"></div>
+			<div class="linea-v"></div>
+			<div class="linea-v"></div>
+			<div class="linea-v"></div>
+			<div class="linea-v"></div>
+			<div class="linea-v"></div>
+			<div class="linea-v"></div>
+			<div class="linea-v"></div>
+			<div class="linea-v"></div>
+			<div class="linea-v"></div>
+		</div>
+
+	</div>
+</body>
+
+<style type="text/css">
+	.contenedor{
+		width: 800px;
+		height: 800px;
+		border: 2px solid red;
+		box-sizing: border-box;
+		float: left;
+		position: absolute;
+		left: calc(50% - 400px);
+		top:50px;
+	}
+
+	.resultado{
+		width: 0px;
+		height: 0px;
+		background: green;
+		position: absolute;
+		left: calc(50% - 1px);
+		top: calc(50% - 1px);
+		float: left;
+		transition: .5s all;
+		opacity: .4;
+		border-radius: 10px
+	}
+
+	.cuadranteA, .cuadranteB, .cuadranteC, .cuadranteD{
+		width: 50%;
+		height:50%;
+		border: 2px solid red;
+		box-sizing: border-box;
+		float: left;
+		display: block;
+		text-align: center;
+		line-height: 400px;
+	}
+
+	.lineas-h{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		opacity: .2
+	}
+
+	.linea-h{
+		width: 100%;
+		height: calc(100% / 18);
+		float: left;
+		display: block;
+		position: relative;
+		float: left;
+		border: 1px solid red;
+		box-sizing: border-box;
+	}
+
+	.lineas-v{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		opacity: .2
+	}
+
+	.linea-v{
+		height: 100%;
+		width: calc(100% / 18);
+		float: left;
+		display: block;
+		position: relative;
+		float: left;
+		border: 1px solid red;
+		box-sizing: border-box;
+	}
+</style>
+
+<script type="text/javascript">
+
+
+	function generar(){
+
+		document.querySelector('.resultado').clientHeight;
+		document.querySelector('.resultado').clientWidth;
+
+		valorA = document.getElementById('valorA').value;
+		valorB = document.getElementById('valorB').value;
+		valorC = document.getElementById('valorC').value;
+		valorD = document.getElementById('valorD').value;
+
+		document.querySelector('.resultado').style.width = "0px";
+		document.querySelector('.resultado').style.height = "0px";
+		document.querySelector('.resultado').style.left = "calc(50% - 1px)";
+		document.querySelector('.resultado').style.top = "calc(50% - 1px)";
+
+		altura = 0;
+		anchura = 0;
+
+		nuevaAlturaA = altura + (400 / 9) * valorA;
+		document.querySelector('.resultado').style.height =  nuevaAlturaA + "px";
+		document.querySelector('.resultado').style.top = "calc(50% - " + (400 / 9) * valorA + "px";
+
+		setTimeout(function(){
+			anchura = document.querySelector('.resultado').clientWidth;
+			nuevaAnchuraB = anchura + (400 / 9) * valorB;
+			document.querySelector('.resultado').style.width =  nuevaAnchuraB + "px";
+			document.querySelector('.resultado').style.right = "calc(50% - " + (400 / 9) * valorB + "px";
+		},500)
+		
+		setTimeout(function(){
+			altura = document.querySelector('.resultado').clientHeight;
+			nuevaAlturaC = altura + (400 / 9) * valorC;
+			document.querySelector('.resultado').style.height =  nuevaAlturaC + "px";
+			document.querySelector('.resultado').style.bottom = "calc(50% - " + (400 / 9) * valorC + "px";
+		},1000)
+
+		setTimeout(function(){
+			anchura = document.querySelector('.resultado').clientWidth;
+			nuevaAnchuraD = anchura + (400 / 9) * valorD;
+			document.querySelector('.resultado').style.width =  nuevaAnchuraD + "px";
+			document.querySelector('.resultado').style.left = "calc(50% - " + (400 / 9) * valorD + "px";
+		},1500)
+
+	}
+</script>
+</html>
