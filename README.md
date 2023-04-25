@@ -1,2 +1,2 @@
 # radar
-Cuadro de coordenadas para obtener resultados del test de Bartle
+Cuadro de coordenadas para obtener resultados del test de Bartle.
